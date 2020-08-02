@@ -1,0 +1,91 @@
+The function "class" helps us determine the type of an object.
+a<-2
+class(a)
+->numeric
+class(ls)
+->function
+
+Conceptually, we can think of data frames as tables.
+
+
+# loading the dslabs package and the murders dataset
+library(dslabs)
+data(murders)
+class(murders)   # => data.frame 
+#=>This is where the relevant data for answering our questions is stored.
+
+
+# determining that the murders dataset is of the "data frame" class
+class(murders)
+# finding out more about the structure of the object
+str(murders)
+
+# showing the first 6 lines of the dataset
+head(murders)
+
+Rows are the different observation, in this case, states.
+And columns represent different variables.
+
+!!!To access these variables, we use the dollar sign symbol!!!
+It's called the accessor.
+
+# using the accessor operator to obtain the population column
+murders$population
+
+# displaying the variable names in the murders dataset
+# Names(murders) tells us the five names of the five columns.
+names(murders)
+
+# determining how many entries are in a vector
+pop <- murders$population
+
+length(pop) # => 51
+
+I will see that it's a vector with 51 entries, one for each state.
+This particular vector is a numeric vector since population sizes,
+are numbers.
+# vectors can be of class numeric and character
+class(pop) # => numeric 
+class(murders$state)
+
+We're going to use quotes to distinguish between variable names and character
+
+a <-1
+a
+[1]1
+"a" # =>[1] "a"
+
+An example of a character vector is the column with the state names.
+So if I grab that column by using the dollar sign
+and I look at the class of that column, you will see that it's a character.
+class(murders$state) =>"character"
+
+Logical vectors are another type of vector.
+These must be either true or false.
+z <-3==2
+z   # => false
+
+When I type z, we see that it's false.
+That's because 3 is not equal to 2.
+Equal equal is a relational operator asking if 3 is equal to 2.
+!!!Note that it's different from just one equal, which would assign 2 to 3,!!!
+
+# logical vectors are either TRUE or FALSE
+z <- 3 == 2
+z
+class(z)
+
+We see something new, it says factor.
+Factors are useful for storing what is called categorical data.
+# factors are another type of class
+class(murders$region)   # => factor
+
+We can see the four levels in this particular factor 
+using the function levels.
+So we type levels, murders, dollar sign, region,
+# obtaining the levels of a factor
+levels(murders$region)
+
+1. A vector is an object consisting of several entries and can be a numeric vector, a character vector, or a logical vector.
+2. We use quotes to distinguish between variable names and character strings.
+2. Factors are useful for storing categorical data, and are more memory efficient than storing characters.

@@ -1,0 +1,24 @@
+2.3 Vector Arithmetic
+
+library(tidyverse)
+library(dslabs)
+data(murders)
+
+
+# The name of the state with the maximum population is found by doing the following
+murders$state[which.max(murders$population)]
+
+heighs<- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)
+heigh*2.54
+[1] 175.26 157.48 167.64 177.80 177.80 185.42 170.18 185.42 170.18 177.80
+
+> heights -69
+ [1]  0 -7 -3  1  1  4 -2  4 -2  1
+
+# 用矩陣一次乘很多，得到50週的答案
+# how to obtain the murder rate
+murder_rate <- murders$total / murders$population * 100000
+
+# ordering the states by murder rate, in decreasing order
+murders$state[order(murder_rate, decreasing=TRUE)]
+Annotate
